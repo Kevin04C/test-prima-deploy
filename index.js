@@ -17,6 +17,7 @@ app.get("/api/products", async (req, res) => {
       products,
     })
   } catch (error) {
+    console.log(error)
     res.status(400).json({
       message: 'Error al cargar los productos'
     })
