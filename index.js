@@ -1,10 +1,12 @@
 import express from 'express'
 import { PrismaClient } from '@prisma/client'
+import { config} from 'dotenv'
 
+config()
 
 const db = new PrismaClient()
 
-const PORT = 8080 || process.env.PORT
+const PORT = process.env.PORT
 
 const app = express()
 
