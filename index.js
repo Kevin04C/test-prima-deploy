@@ -10,11 +10,13 @@ const PORT = process.env.PORT
 
 const app = express()
 
+app.use(express.static('public'))
+
 app.use(express.json())
 
 app.get("/api/products", async (req, res) => {
   try {
-    db.$connect
+    db.$connect()
     const products = await db.products.findMany()
     res.status(200).json({
       products,
