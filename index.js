@@ -16,7 +16,6 @@ app.use(express.json())
 
 app.get("/api/products", async (req, res) => {
   try {
-    db.$connect()
     const products = await db.products.findMany()
     res.status(200).json({
       products,
@@ -26,8 +25,6 @@ app.get("/api/products", async (req, res) => {
     res.status(400).json({
       message: 'Error al cargar los productos'
     })
-  }finally {
-    db.$disconnect()
   }
 })
 
